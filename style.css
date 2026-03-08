@@ -1,0 +1,247 @@
+/* style.css - AI未来展望网站统一样式 */
+
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全局样式 */
+body {
+    font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: #333;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 导航栏 */
+.simple-nav {
+    background: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.nav-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4facfe;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: #666;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover {
+    background: #4facfe;
+    color: white;
+}
+
+/* 英雄区域 */
+.simple-hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.simple-hero h1 {
+    font-size: 2.5rem;
+    color: #4facfe;
+    margin-bottom: 15px;
+}
+
+.simple-hero p {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 25px;
+}
+
+/* 动画按钮 */
+.pulse-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    animation: pulse 2s infinite;
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 动画卡片 */
+.animated-card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    color: #4facfe;
+    font-weight: bold;
+}
+
+/* 动画图表 */
+.chart-container {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.chart-bar {
+    height: 30px;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    border-radius: 5px;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.chart-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+/* 时间线动画 */
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: #4facfe;
+    border-radius: 50%;
+    position: relative;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+/* 折叠内容 */
+.expandable {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.expandable:hover {
+    background: #e9ecef;
+}
+
+.expand-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* 页脚 */
+.simple-footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .simple-nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .simple-hero h1 {
+        font-size: 2rem;
+    }
+}
